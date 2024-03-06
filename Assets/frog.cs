@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class frog : MonoBehaviour
 {
+    public GameObject bullet;
     public float velocidad;
     public float fuerzaSalto;
     private Animator animator;
+
 
     void Start()
     {
@@ -17,6 +19,7 @@ public class frog : MonoBehaviour
     {
         MovFrog();
         Saltar();
+        Disparo();
     }
 
     void MovFrog()
@@ -34,10 +37,27 @@ public class frog : MonoBehaviour
 
             Rigidbody2D rb2D = GetComponent<Rigidbody2D>();
             rb2D.velocity = new Vector2(rb2D.velocity.x, fuerzaSalto);
+
         }
         else
         {
             animator.SetTrigger("stand");
         }
     }
+
+
+
+
+    void Disparo()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }
+    }
+
+
+
+
 }
+
