@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class frog : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public float velocidad;
     public float fuerzaSalto;
     private Animator animator;
@@ -47,16 +47,13 @@ public class frog : MonoBehaviour
 
 
 
-
     void Disparo()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         }
     }
-
-
 
 
 }
